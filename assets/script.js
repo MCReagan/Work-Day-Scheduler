@@ -55,9 +55,7 @@ for (i = 0; i < saveButton.length; i++) {
     saveButton[i].addEventListener("click", function () {
     var time = $(this).siblings().text();
     var plans = $(this).siblings(".description").val();
-    console.log(time);
-    console.log(plans)
-
+    localStorage.setItem("plans", time + plans);
     })
 };
 
