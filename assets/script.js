@@ -23,18 +23,15 @@ $(function () {
 });
 
 
-// GIVEN I am using a daily planner to create a schedule
 function displayTime() {
     var today = dayjs().format('MMM D, YYYY, h:mm:ss a');
     $('#currentDay').text(today);
 }
-setInterval(displayTime, 1000);
-// WHEN I view the timeblocks for that day
-// THEN each timeblock is color coded to indicate whether it is in the past, present, or future
+
 function timeColor() {
     var hour = dayjs().hour();
     var currHour = document.getElementsByClassName("time-block");
-   
+
     $(".time-block").each(function () {
         for (var i = 0; i < currHour.length; i++) {
             if ((parseInt(currHour[i].id)) > hour) {
@@ -49,10 +46,27 @@ function timeColor() {
 
 };
 
-timeColor();
 // WHEN I click into a timeblock
 // THEN I can enter an event
+
+var saveButton = document.querySelectorAll(".saveBtn");
+
+for (i = 0; i < saveButton.length; i++) {
+    saveButton[i].addEventListener("click", function () {
+    var time = $(this).siblings().text();
+    var plans = $(this).siblings(".description").val();
+    console.log(time);
+    console.log(plans)
+
+    })
+};
+
 // WHEN I click the save button for that timeblock
 // THEN the text for that event is saved in local storage
+
+
 // WHEN I refresh the page
 // THEN the saved events persist
+timeColor();
+setInterval(timeColor, 1000);
+setInterval(displayTime, 1000);
