@@ -29,14 +29,15 @@ function displayTime() {
     $('#currentDay').text(today);
 }
 setInterval(displayTime, 1000);
-
-// WHEN I scroll down
-// THEN I am presented with timeblocks for standard business hours
-var hoursinDay=["12AM", "1AM", "2AM", "3AM", "4AM", "5AM", "6AM", "7AM", "8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM", "8PM", "9PM", "10PM", "11PM"];
-
-
+console.log(dayjs().hour());
 // WHEN I view the timeblocks for that day
 // THEN each timeblock is color coded to indicate whether it is in the past, present, or future
+function timeColor() {
+    var hour = dayjs().hour();
+    var currHour = parseInt($(this).attr("id"));
+
+    $(".time-block")
+}
 // WHEN I click into a timeblock
 // THEN I can enter an event
 // WHEN I click the save button for that timeblock
