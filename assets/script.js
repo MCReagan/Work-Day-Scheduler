@@ -29,15 +29,27 @@ function displayTime() {
     $('#currentDay').text(today);
 }
 setInterval(displayTime, 1000);
-console.log(dayjs().hour());
 // WHEN I view the timeblocks for that day
 // THEN each timeblock is color coded to indicate whether it is in the past, present, or future
 function timeColor() {
     var hour = dayjs().hour();
-    var currHour = parseInt($(this).attr("id"));
+    var currHour = document.getElementsByClassName("time-block");
+   
+    $(".time-block").each(function () {
+        for (var i = 0; i < currHour.length; i++) {
+            if ((parseInt(currHour[i].id)) > hour) {
+                $(currHour[i]).addClass("future");
+            } else if ((parseInt(currHour[i].id)) == hour) {
+                $(currHour[i]).addClass("present");
+            } else {
+                $(currHour[i]).addClass("past");
+            }
+        }
+    })
 
-    $(".time-block")
-}
+};
+
+timeColor();
 // WHEN I click into a timeblock
 // THEN I can enter an event
 // WHEN I click the save button for that timeblock
