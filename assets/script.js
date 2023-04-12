@@ -55,9 +55,11 @@ for (i = 0; i < saveButton.length; i++) {
     saveButton[i].addEventListener("click", function () {
     var time = $(this).siblings().text();
     var plans = $(this).siblings(".description").val();
-    localStorage.setItem("plans", time + plans);
+    localStorage.setItem(time, plans);
     })
 };
+
+
 
 // WHEN I click the save button for that timeblock
 // THEN the text for that event is saved in local storage
@@ -65,6 +67,13 @@ for (i = 0; i < saveButton.length; i++) {
 
 // WHEN I refresh the page
 // THEN the saved events persist
+
+function renderPlans() {
+
+
+}
+
+renderPlans();
 timeColor();
 setInterval(timeColor, 1000);
 setInterval(displayTime, 1000);
