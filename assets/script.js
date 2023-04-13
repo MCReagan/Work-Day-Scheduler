@@ -2,7 +2,7 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-
+// savButton scans the page and returns an object of all save buttons
 var saveButton = document.querySelectorAll(".saveBtn");
 
 // function displays time using dayjs. it will display the current time and updates every second
@@ -27,9 +27,7 @@ function timeColor() {
             }
         }
     })
-
 };
-
 
 // savebutton eventlistener listens to a save button press and sets the value of the time and user input in localstorage
 for (i = 0; i < saveButton.length; i++) {
@@ -51,8 +49,7 @@ function renderPlans() {
     })
 }
 
-
-// calls functions so they work properly and sets a timer to update content every second
+// calls functions and sets a timer to update content in real time
 renderPlans();
 timeColor();
 displayTime();
